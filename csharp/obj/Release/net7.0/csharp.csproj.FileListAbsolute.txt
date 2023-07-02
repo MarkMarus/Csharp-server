@@ -1,0 +1,15 @@
+/Users/markmarus/Projects/csharp/csharp/bin/Release/net7.0/csharp
+/Users/markmarus/Projects/csharp/csharp/bin/Release/net7.0/csharp.deps.json
+/Users/markmarus/Projects/csharp/csharp/bin/Release/net7.0/csharp.runtimeconfig.json
+/Users/markmarus/Projects/csharp/csharp/bin/Release/net7.0/csharp.dll
+/Users/markmarus/Projects/csharp/csharp/bin/Release/net7.0/csharp.pdb
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/csharp.csproj.AssemblyReference.cache
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/csharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/csharp.AssemblyInfoInputs.cache
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/csharp.AssemblyInfo.cs
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/csharp.csproj.CoreCompileInputs.cache
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/csharp.dll
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/refint/csharp.dll
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/csharp.pdb
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/csharp.genruntimeconfig.cache
+/Users/markmarus/Projects/csharp/csharp/obj/Release/net7.0/ref/csharp.dll

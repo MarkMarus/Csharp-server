@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{C2A1B289-C81C-4CEC-9553-26ABBB5C6BAB}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.csharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="csharp/login.cs">
+    <Files>
+      <File FileName="csharp/Program.cs" />
+      <File FileName="csharp/socketServer.cs" Line="115" Column="1" />
+      <File FileName="csharp/login.cs" Line="24" Column="18" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="csharp" expanded="True">
+            <Node name="csharp" expanded="True">
+              <Node name="login.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

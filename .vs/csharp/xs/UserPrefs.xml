@@ -1,25 +1,26 @@
 ﻿<Properties StartupConfiguration="{C2A1B289-C81C-4CEC-9553-26ABBB5C6BAB}|Default">
+  <MonoDevelop.Ide.ItemProperties.csharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="csharp/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="csharp/login.cs">
     <Files>
-      <File FileName="csharp/Program.cs" Line="112" Column="2" />
-      <File FileName="csharp/socketServer.cs" />
-      <File FileName="csharp/login.cs" Line="24" Column="18" />
+      <File FileName="csharp/Program.cs" />
+      <File FileName="csharp/login.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="csharp">
-            <Node name="csharp" expanded="True" />
+          <Node name="csharp" expanded="True">
+            <Node name="csharp" expanded="True">
+              <Node name="login.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.csharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
 </Properties>

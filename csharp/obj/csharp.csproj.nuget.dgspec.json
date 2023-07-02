@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ПК\\Desktop\\CS server\\Csharp-sever\\csharp\\csharp.csproj": {}
+    "/Users/markmarus/Projects/csharp/csharp/csharp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ПК\\Desktop\\CS server\\Csharp-sever\\csharp\\csharp.csproj": {
+    "/Users/markmarus/Projects/csharp/csharp/csharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ПК\\Desktop\\CS server\\Csharp-sever\\csharp\\csharp.csproj",
+        "projectUniqueName": "/Users/markmarus/Projects/csharp/csharp/csharp.csproj",
         "projectName": "csharp",
-        "projectPath": "C:\\Users\\ПК\\Desktop\\CS server\\Csharp-sever\\csharp\\csharp.csproj",
-        "packagesPath": "C:\\Users\\ПК\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ПК\\Desktop\\CS server\\Csharp-sever\\csharp\\obj\\",
+        "projectPath": "/Users/markmarus/Projects/csharp/csharp/csharp.csproj",
+        "packagesPath": "/Users/markmarus/.nuget/packages/",
+        "outputPath": "/Users/markmarus/Projects/csharp/csharp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ПК\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/markmarus/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
         }
       }
     }

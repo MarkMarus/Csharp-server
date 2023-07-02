@@ -15,14 +15,14 @@ namespace Sockets.Client.Login
 
             await client.ConnectAsync(serverEndPoint);
 
+            // Send login message.
+            var loginMessage = "listener";
+            var messageBytes = Encoding.UTF8.GetBytes(loginMessage);
+            await client.SendAsync(messageBytes, SocketFlags.None);
+            Console.WriteLine($"Socket client sent login message: \"{loginMessage}\"");
+
             while (true)
             {
-                // Send login message.
-                var loginMessage = "listener";
-                var messageBytes = Encoding.UTF8.GetBytes(loginMessage);
-                await client.SendAsync(messageBytes, SocketFlags.None);
-                Console.WriteLine($"Socket client sent login message: \"{loginMessage}\"");
-
                 // Receive login acknowledgment.
                 var buffer = new byte[1_024];
                 var received = await client.ReceiveAsync(buffer, SocketFlags.None);
@@ -30,14 +30,17 @@ namespace Sockets.Client.Login
                 if (response == "login_ack")
                 {
                     Console.WriteLine($"Socket client received login acknowledgment: \"{response}\"");
+                    // Continue with your desired logic here for the connected state
+                }
+                else
+                {
+                    Console.WriteLine($"Socket client received invalid login acknowledgment: \"{response}\"");
                     break;
                 }
-
-                // Handle unsuccessful login acknowledgment.
-                Console.WriteLine($"Socket client received invalid login acknowledgment: \"{response}\"");
-                break;
             }
 
+            Console.WriteLine("Press Enter to exit: ");
+            Console.ReadLine();
             client.Shutdown(SocketShutdown.Both);
         }
     }

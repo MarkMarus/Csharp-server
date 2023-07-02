@@ -4,6 +4,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
+namespace Sockets.Client;
+
 public class SocketServer
 {
     private TcpListener listener;
@@ -46,16 +48,39 @@ public class SocketServer
         TcpClient client = (TcpClient)clientObj;
         NetworkStream stream = client.GetStream();
 
-        // Example: Send a welcome message to the client
-        string welcomeMessage = "Welcome to the server!";
-        byte[] welcomeMessageBytes = Encoding.UTF8.GetBytes(welcomeMessage);
-        stream.Write(welcomeMessageBytes, 0, welcomeMessageBytes.Length);
+        // Receive the login message from the client
+        byte[] buffer = new byte[1024];
+        int bytesRead = stream.Read(buffer, 0, buffer.Length);
+        string loginMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+        Console.WriteLine($"Received login message from client: {loginMessage}");
 
-        // TODO: Implement your game-specific logic here to send information to clients
+        // Check the login message and send the appropriate acknowledgment
+        string response;
+        if (loginMessage == "listener")
+        {
+            response = "login_ack";
+        }
+        else
+        {
+            response = "invalid_login";
+        }
+
+        // Send the login acknowledgment response to the client
+        byte[] responseBytes = Encoding.UTF8.GetBytes(response);
+        stream.Write(responseBytes, 0, responseBytes.Length);
+        Console.WriteLine($"Sent login acknowledgment to client: {response}");
+
+        // Keep the connection alive and continue communication
+        while (true)
+        {
+            // TODO: Handle further communication with the client here
+        }
 
         // Clean up resources
         stream.Close();
         client.Close();
         Console.WriteLine("Client disconnected.");
     }
+
+
 }

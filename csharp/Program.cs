@@ -56,7 +56,7 @@ namespace Sockets.Client.Login
         }
 
 
-        
+
         static string GetLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Text;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Sockets.Client
 {
@@ -9,56 +11,37 @@ namespace Sockets.Client
     {
         static void ConnectToSocket(string[] args)
         {
-            Console.WriteLine("Press enter to connect to the server:");
-            Console.ReadLine();
-
-            try
+            static async Task LoginAsListener(IPEndPoint serverEndPoint)
             {
-                IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
-                IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
-                IPEndPoint remoteEP = new IPEndPoint(ipAddress, 43665);
+                using Socket client = new Socket(serverEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-                Socket sender = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                await client.ConnectAsync(serverEndPoint);
 
-                try
+                while (true)
                 {
-                    sender.Connect(remoteEP);
+                    // Send login message.
+                    var loginMessage = "listener";
+                    var messageBytes = Encoding.UTF8.GetBytes(loginMessage);
+                    await client.SendAsync(messageBytes, SocketFlags.None);
+                    Console.WriteLine($"Socket client sent login message: \"{loginMessage}\"");
 
-                    Console.WriteLine($"Connected to {sender.RemoteEndPoint}");
-
-                    while (true)
+                    // Receive login acknowledgment.
+                    var buffer = new byte[1_024];
+                    var received = await client.ReceiveAsync(buffer, SocketFlags.None);
+                    var response = Encoding.UTF8.GetString(buffer, 0, received);
+                    if (response == "login_ack")
                     {
-                        Console.WriteLine("Enter a message to send to the server (or 'exit' to quit):");
-                        string message = Console.ReadLine();
-
-                        if (message.ToLower() == "exit")
-                            break;
-
-                        byte[] msg = Encoding.ASCII.GetBytes(message + "<EOF>");
-
-                        sender.Send(msg);
-
-                        byte[] buffer = new byte[1024];
-                        int bytesRec = sender.Receive(buffer);
-                        string response = Encoding.ASCII.GetString(buffer, 0, bytesRec);
-                        Console.WriteLine($"Server response: {response}");
+                        Console.WriteLine($"Socket client received login acknowledgment: \"{response}\"");
+                        break;
                     }
 
-                    sender.Shutdown(SocketShutdown.Both);
-                    sender.Close();
+                    // Handle unsuccessful login acknowledgment.
+                    Console.WriteLine($"Socket client received invalid login acknowledgment: \"{response}\"");
+                    break;
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
 
-            Console.WriteLine("Press enter to exit the client:");
-            Console.ReadLine();
+                client.Shutdown(SocketShutdown.Both);
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 
 namespace Sockets.Client.Login
 {
@@ -20,6 +20,9 @@ namespace Sockets.Client.Login
                 int port = 1234; // Specify the port number you want to listen on
                 SocketServer server = new SocketServer();
                 server.Start(port);
+
+                string ipAddress = GetLocalIPAddress();
+                Console.WriteLine($"Server started at {ipAddress}:{port}");
 
                 // Keep the server running until the user presses Enter
                 Console.WriteLine("Press Enter to stop the server.");
@@ -43,7 +46,7 @@ namespace Sockets.Client.Login
             }
         }
 
-        static async Task LoginAsClient(string ipAddress, int port)
+static async Task LoginAsClient(string ipAddress, int port)
         {
             using Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
@@ -92,6 +95,18 @@ namespace Sockets.Client.Login
                 client.Shutdown(SocketShutdown.Both);
                 client.Close();
             }
+        }
+        static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ipAddress in host.AddressList)
+            {
+                if (ipAddress.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ipAddress.ToString();
+                }
+            }
+            return string.Empty;
         }
     }
 }

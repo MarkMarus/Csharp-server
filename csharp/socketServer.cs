@@ -10,12 +10,12 @@ namespace Sockets.Client
     {
         private TcpListener listener;
         private bool isRunning;
-        private bool isPrivate;
+        private bool requirePassword;
         private string password;
 
-        public void Start(int port, bool isPrivate, string password)
+        public void Start(int port, bool requirePassword = false, string password = "")
         {
-            this.isPrivate = isPrivate;
+            this.requirePassword = requirePassword;
             this.password = password;
 
             listener = new TcpListener(IPAddress.Any, port);
@@ -61,11 +61,11 @@ namespace Sockets.Client
 
             // Check the login message and send the appropriate acknowledgment
             string response;
-            if (isPrivate && loginMessage == password)
+            if (requirePassword && loginMessage == password)
             {
                 response = "login_ack";
             }
-            else if (!isPrivate)
+            else if (!requirePassword)
             {
                 response = "login_ack";
             }
@@ -78,6 +78,15 @@ namespace Sockets.Client
             byte[] responseBytes = Encoding.UTF8.GetBytes(response);
             stream.Write(responseBytes, 0, responseBytes.Length);
             Console.WriteLine($"Sent login acknowledgment to client: {response}");
+
+            if (response == "invalid_login")
+            {
+                // Clean up resources and disconnect the client
+                stream.Close();
+                client.Close();
+                Console.WriteLine("Invalid login. Client disconnected.");
+                return;
+            }
 
             // Keep the connection alive and continue communication
             while (isRunning)

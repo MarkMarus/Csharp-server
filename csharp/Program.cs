@@ -12,6 +12,7 @@ namespace Sockets.Client.Login
             Console.WriteLine("Select an option:");
             Console.WriteLine("1. Start the server");
             Console.WriteLine("2. Login as a client");
+            Console.WriteLine("3. Start a global server");
 
             string option = Console.ReadLine();
 
@@ -35,7 +36,6 @@ namespace Sockets.Client.Login
 
                 server.Stop();
             }
-
             else if (option == "2")
             {
                 Console.WriteLine("Enter the server IP address:");
@@ -57,6 +57,26 @@ namespace Sockets.Client.Login
 
                 Login.LoginAsListener(serverEndPoint).GetAwaiter().GetResult();
             }
+            else if (option == "3")
+            {
+                Console.WriteLine("Enter the server port number:");
+                int port = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter the server password:");
+                string password = Console.ReadLine();
+
+                SocketServer server = new SocketServer();
+                server.Start(port, true, password);
+
+                string ipAddress = GetPublicIPAddress();
+                Console.WriteLine($"Global server started at {ipAddress}:{port}");
+
+                // Wait for the Enter key press to stop the server
+                Console.WriteLine("Press Enter to stop the server.");
+                Console.ReadLine();
+
+                server.Stop();
+            }
             else
             {
                 Console.WriteLine("Invalid option selected.");
@@ -73,6 +93,24 @@ namespace Sockets.Client.Login
                     return ipAddress.ToString();
                 }
             }
+            return string.Empty;
+        }
+
+        static string GetPublicIPAddress()
+        {
+            using (var client = new WebClient())
+            {
+                try
+                {
+                    string response = client.DownloadString("https://api.ipify.org");
+                    return response.Trim();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Failed to retrieve public IP address: {ex.Message}");
+                }
+            }
+
             return string.Empty;
         }
     }

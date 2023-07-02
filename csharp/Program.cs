@@ -24,12 +24,13 @@ namespace Sockets.Client.Login
                 string ipAddress = GetLocalIPAddress();
                 Console.WriteLine($"Server started at {ipAddress}:{port}");
 
-                // Keep the server running until the user presses Enter
+                // Wait for the Enter key press to stop the server
                 Console.WriteLine("Press Enter to stop the server.");
                 Console.ReadLine();
 
                 server.Stop();
             }
+
             else if (option == "2")
             {
                 Console.WriteLine("Enter the server IP address:");
@@ -54,8 +55,6 @@ namespace Sockets.Client.Login
                 Console.WriteLine("Invalid option selected.");
             }
         }
-
-
 
         static string GetLocalIPAddress()
         {

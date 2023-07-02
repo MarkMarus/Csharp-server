@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Sockets.Client.Login
 {
@@ -23,20 +24,22 @@ namespace Sockets.Client.Login
 
             while (true)
             {
-                // Receive login acknowledgment.
+                Console.WriteLine("Enter a message to send (or 'exit' to quit): ");
+                var input = Console.ReadLine();
+
+                if (input == "exit")
+                    break;
+
+                // Send user input message.
+                messageBytes = Encoding.UTF8.GetBytes(input);
+                await client.SendAsync(messageBytes, SocketFlags.None);
+                Console.WriteLine($"Socket client sent message: \"{input}\"");
+
+                // Receive server response.
                 var buffer = new byte[1_024];
                 var received = await client.ReceiveAsync(buffer, SocketFlags.None);
                 var response = Encoding.UTF8.GetString(buffer, 0, received);
-                if (response == "login_ack")
-                {
-                    Console.WriteLine($"Socket client received login acknowledgment: \"{response}\"");
-                    // Continue with your desired logic here for the connected state
-                }
-                else
-                {
-                    Console.WriteLine($"Socket client received invalid login acknowledgment: \"{response}\"");
-                    break;
-                }
+                Console.WriteLine($"Socket client received response: \"{response}\"");
             }
 
             Console.WriteLine("Press Enter to exit: ");

@@ -10,9 +10,14 @@ namespace Sockets.Client
     {
         private TcpListener listener;
         private bool isRunning;
+        private bool isPrivate;
+        private string password;
 
-        public void Start(int port)
+        public void Start(int port, bool isPrivate, string password)
         {
+            this.isPrivate = isPrivate;
+            this.password = password;
+
             listener = new TcpListener(IPAddress.Any, port);
             listener.Start();
             isRunning = true;
@@ -56,7 +61,11 @@ namespace Sockets.Client
 
             // Check the login message and send the appropriate acknowledgment
             string response;
-            if (loginMessage == "listener")
+            if (isPrivate && loginMessage == password)
+            {
+                response = "login_ack";
+            }
+            else if (!isPrivate)
             {
                 response = "login_ack";
             }

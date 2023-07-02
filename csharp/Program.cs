@@ -17,9 +17,14 @@ namespace Sockets.Client.Login
 
             if (option == "1")
             {
-                int port = 1234; // Specify the port number you want to listen on
+                Console.WriteLine("Enter the server port number:");
+                int port = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter the server password:");
+                string password = Console.ReadLine();
+
                 SocketServer server = new SocketServer();
-                server.Start(port);
+                server.Start(port, true, password);
 
                 string ipAddress = GetLocalIPAddress();
                 Console.WriteLine($"Server started at {ipAddress}:{port}");
@@ -39,6 +44,9 @@ namespace Sockets.Client.Login
                 Console.WriteLine("Enter the server port number:");
                 int port = Convert.ToInt32(Console.ReadLine());
 
+                Console.WriteLine("Enter the server password:");
+                string password = Console.ReadLine();
+
                 IPEndPoint serverEndPoint;
                 if (!IPAddress.TryParse(ipAddress, out IPAddress serverAddress))
                 {
@@ -48,7 +56,6 @@ namespace Sockets.Client.Login
                 serverEndPoint = new IPEndPoint(serverAddress, port);
 
                 Login.LoginAsListener(serverEndPoint).GetAwaiter().GetResult();
-
             }
             else
             {

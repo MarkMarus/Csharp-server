@@ -8,25 +8,26 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/Users/markmarus/.nuget/packages/": {}
+    "C:\\Users\\ПК\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/markmarus/Projects/csharp/csharp/csharp.csproj",
+      "projectUniqueName": "C:\\Users\\ПК\\Desktop\\CS server\\Csharp-sever\\csharp\\csharp.csproj",
       "projectName": "csharp",
-      "projectPath": "/Users/markmarus/Projects/csharp/csharp/csharp.csproj",
-      "packagesPath": "/Users/markmarus/.nuget/packages/",
-      "outputPath": "/Users/markmarus/Projects/csharp/csharp/obj/",
+      "projectPath": "C:\\Users\\ПК\\Desktop\\CS server\\Csharp-sever\\csharp\\csharp.csproj",
+      "packagesPath": "C:\\Users\\ПК\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ПК\\Desktop\\CS server\\Csharp-sever\\csharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/markmarus/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ПК\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -60,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

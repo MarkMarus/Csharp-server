@@ -13,3 +13,18 @@
 /Users/markmarus/Projects/csharp/csharp/obj/Debug/net7.0/csharp.pdb
 /Users/markmarus/Projects/csharp/csharp/obj/Debug/net7.0/csharp.genruntimeconfig.cache
 /Users/markmarus/Projects/csharp/csharp/obj/Debug/net7.0/ref/csharp.dll
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\bin\Debug\net7.0\csharp.exe
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\bin\Debug\net7.0\csharp.deps.json
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\bin\Debug\net7.0\csharp.runtimeconfig.json
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\bin\Debug\net7.0\csharp.dll
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\bin\Debug\net7.0\csharp.pdb
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\csharp.csproj.AssemblyReference.cache
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\csharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\csharp.AssemblyInfoInputs.cache
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\csharp.AssemblyInfo.cs
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\csharp.csproj.CoreCompileInputs.cache
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\csharp.dll
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\refint\csharp.dll
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\csharp.pdb
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\csharp.genruntimeconfig.cache
+C:\Users\ПК\Desktop\CS server\Csharp-sever\csharp\obj\Debug\net7.0\ref\csharp.dll

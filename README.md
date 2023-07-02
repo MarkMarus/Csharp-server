@@ -21,11 +21,11 @@ cd csharp-server
 ```
 
 ```bash
-  dotnet run --project csharp server
+dotnet run --project csharp server
 ```
 
 ### Todo
 
 - [ ] Finish the global socket feature
 - [ ] Make GUI
-  - [ ] Make a release version
+- [ ] Make a release version

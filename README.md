@@ -1,4 +1,4 @@
-# Csharp-server
+# C# server
 a utility that allows you to create a C# server and connect to it
 This utility was developed for creating a socket servers that people can connect to locally or world-wide
 ## Authors
